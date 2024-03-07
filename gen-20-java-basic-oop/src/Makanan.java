@@ -4,10 +4,8 @@ public class Makanan extends KategoriProduk{
 
     //override
     void display(){
-        System.out.println("Nama\t\t: " + this.nama);
-        //System.out.println("Deskripsi\t: " + this.deskripsi);
+        super.display();
         System.out.println("Berat\t\t: " + this.berat + " gr");
-        System.out.println("Harga\t\t: Rp. " + this.harga);
     }
 
 }
