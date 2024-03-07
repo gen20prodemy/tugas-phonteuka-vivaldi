@@ -1,8 +1,10 @@
 public class KategoriProduk {
+    //atribut produk
     String nama;
     private String deskripsi;
     double harga;
 
+    //default value atribut
     public KategoriProduk(){
         this.nama = "Belum ada nama barang";
         this.deskripsi = "Belum ada deskripsi";
