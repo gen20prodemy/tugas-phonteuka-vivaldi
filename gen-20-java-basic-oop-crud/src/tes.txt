@@ -1,0 +1,2 @@
+mobil 10
+motor 2
