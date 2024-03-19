@@ -4,6 +4,7 @@ package com.io;
 public abstract class Item {
 
     //setiap method harus sama dengan subclass
+    //method CRUD barang
     public abstract void addItem(String newItem);
     public abstract void updateItem(int index, String updatedItem);
     public abstract void deleteItem(int index);

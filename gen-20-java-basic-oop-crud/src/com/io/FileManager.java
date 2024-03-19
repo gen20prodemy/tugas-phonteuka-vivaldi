@@ -15,11 +15,13 @@ public class FileManager {
 
     //read data dari file (menampilkan data file)
     public List<String> readData() {
-        List<String> itemList = new ArrayList<>();
+        List<String> itemList = new ArrayList<>();  //membuat list untuk ditampilkan terminal
+
+        //read file
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-                itemList.add(line);
+                itemList.add(line);     //add data ke list
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -29,6 +31,8 @@ public class FileManager {
 
     //write data ke file (save data)
     public void writeData(List<String> itemList) {  //dari list
+
+        //memasukkan data dari list ke writter
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath))) {
             for (String item : itemList) {
                 bw.write(item);

@@ -3,9 +3,9 @@ package com.siswa;
 import java.util.HashMap;
 import java.util.Map;
 
+//class SiswaMap berisi atribut siswa berupa map dan mengimplementasikan interface
 public class SiswaMap implements ICrudSiswa{
-    // Map untuk menyimpan nomor siswa (key) dan nama siswa (value)
-
+    //Map untuk menyimpan nomor siswa (key) dan nama siswa (value)
     private Map<Integer, String> dataSiswa;
 
     // Konstruktor untuk inisialisasi map
@@ -15,8 +15,8 @@ public class SiswaMap implements ICrudSiswa{
 
     // Method untuk menambahkan siswa ke dalam map
     public void tambahSiswa(int nomorSiswa, String namaSiswa) {
-        //dataSiswa.put(nomorSiswa, namaSiswa);
 
+        //kondisi pengecekan nomor siswa (key)
         if (dataSiswa.containsKey(nomorSiswa)) {
             System.out.println("Maaf, nomor " + nomorSiswa + " yang Anda daftarkan sudah ada");
         } else {
@@ -28,16 +28,16 @@ public class SiswaMap implements ICrudSiswa{
     // Method untuk mengubah data dalam map berdasarkan key
     public void ubahData(int nomorSiswa, String namaSiswaBaru) {
 
+        //kondisi pengecekan nomor siswa (key)
         if (dataSiswa.containsKey(nomorSiswa)) {
             dataSiswa.put(nomorSiswa, namaSiswaBaru);
             System.out.println("Data siswa dengan nomor " + nomorSiswa + " berhasil diubah menjadi " + namaSiswaBaru);
         } else {
             System.out.println("Maaf, nomor siswa tidak ditemukan");
         }
-
     }
 
-    // Method untuk mendapatkan nama siswa berdasarkan nomor siswa
+    // Method untuk mendapatkan nama siswa berdasarkan nomor siswa berdasarkan nomor siswa (key)
     public String getNamaSiswa(int nomorSiswa) {
         return dataSiswa.getOrDefault(nomorSiswa, "Siswa tidak ditemukan");
     }
@@ -45,24 +45,21 @@ public class SiswaMap implements ICrudSiswa{
     // Method untuk menghapus siswa berdasarkan nomor siswa
     public void hapusSiswa(int nomorSiswa) {
 
-        try {
-            if (dataSiswa.containsKey(nomorSiswa)) {
-                dataSiswa.remove(nomorSiswa);
-                System.out.println("Data siswa dengan nomor " + nomorSiswa + " berhasil di hapus");
-            } else {
-                throw new Exception("Maaf, nomor siswa tidak ditemukan");
-            }
-        }catch (Exception e){
-            System.out.println(e.getMessage());
+        //kondisi pengecekan nomor siswa (key)
+        if (dataSiswa.containsKey(nomorSiswa)) {
+            dataSiswa.remove(nomorSiswa);
+            System.out.println("Data siswa dengan nomor " + nomorSiswa + " berhasil di hapus");
+        } else {
+            System.out.println("Maaf, nomor siswa tidak ditemukan");
         }
-
     }
 
-    // Method untuk menampilkan daftar siswa
+    // Method untuk display map daftar siswa
     public void tampilkanDaftarSiswa() {
         if(dataSiswa.isEmpty()){
-            System.out.println("Data siswa kosong");
+            System.out.println("Data siswa kosong");    //jika map kosong
         }
+        //display map
         else {
             System.out.println("\nDaftar Siswa:");
             for (Map.Entry<Integer, String> entry : dataSiswa.entrySet()) {
