@@ -7,23 +7,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "product")
+@Table(name="costumer")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
-public class ProductEntity {
+public class CostumerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "productid")
+    @Column(name="costumerid")
     private long id;
-
-    @Column(name = "productname")
+    @Column(name="costumername")
     private String name;
-
-    @Column(name = "productquantity")
-    private int quantity;
-
-    @Column(name = "productprice")
-    private double price;
-
-    @Column(name = "productcategory")
-    private int category;
+    @Column(name="costumeraddress")
+    private String address;
 }

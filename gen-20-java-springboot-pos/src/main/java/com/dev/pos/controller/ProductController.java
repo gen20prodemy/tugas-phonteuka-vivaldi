@@ -1,5 +1,6 @@
 package com.dev.pos.controller;
 
+import com.dev.pos.dto.ProductDTO;
 import com.dev.pos.entity.ProductEntity;
 import com.dev.pos.service.ProductService;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,35 @@ public class ProductController {
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
+
+    @GetMapping
+    public List<ProductDTO> findAllProducts(){
+        return productService.findAllProducts();
+    }
+
+    @PostMapping
+    public ProductDTO saveProduct(@RequestBody ProductDTO productDTO){
+        return productService.saveProduct(productDTO);
+    }
+
+    @PutMapping
+    public ProductDTO updateProduct(@RequestBody ProductDTO productDTO){
+        return productService.saveProduct(productDTO);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteProduct(@PathVariable("id") Long id){
+        productService.deleteProduct(id);
+    }
+
+    @GetMapping("/{id}")
+    public Optional<ProductDTO> findProductById(@PathVariable("id") Long id){
+        return Optional.ofNullable(productService.findById(id));
+    }
+
+
+    /*
+    //TANPA DTO, HANYA ENTITY
 
     @GetMapping
     public List<ProductEntity> findAllProducts(){
@@ -41,5 +71,7 @@ public class ProductController {
     public void deleteProduct(@PathVariable("id") Long id){
         productService.deleteProduct(id);
     }
+
+     */
 
 }
